@@ -1,5 +1,6 @@
 # Upvid Link
 
+## Example 
 ```php
 <?php
 include 'upvid-link.php';
