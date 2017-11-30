@@ -17,9 +17,9 @@ class UpvidLink {
      * @param string $code
      * @return void
      */
-    public function __construct($key, $code) {
+    public function __construct($key, $code = null) {
         $this->key = preg_match('/^\w+$/', $key) ? $key : false;
-        $this->code = preg_match('/^\w{12}$/', $code) ? $code : false;
+        $this->newCode($code);
     }
     
     /**
@@ -28,17 +28,19 @@ class UpvidLink {
      * @return void
      */    
     public function newCode($code) {
-        if(preg_match('/^\w{12}$/', $code)){
-            $this->code = $code;
-        }
-    }    
+        $this->code = preg_match('/^\w{12}$/', $code) ? $code : false;
+    }
     
     /**
      * @method link
      * @return string
      */
-    public function link() {        
-        return 'https://upvid.co/' . $this->encode();
+    public function link() {
+        $encode = $this->encode();
+        
+        if($encode){
+            return 'https://upvid.co/' . $this->encode();   
+        }
     }
     
     /**
