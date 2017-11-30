@@ -23,6 +23,17 @@ class UpvidLink {
     }
     
     /**
+     * @method newCode
+     * @param string $code
+     * @return void
+     */    
+    public function newCode($code) {
+        if(preg_match('/^\w{12}$/', $code)){
+            $this->code = $code;
+        }
+    }    
+    
+    /**
      * @method link
      * @return string
      */
