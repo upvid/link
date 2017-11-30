@@ -39,7 +39,7 @@ class UpvidLink {
         $encode = $this->encode();
         
         if($encode){
-            return 'https://upvid.co/' . $this->encode();   
+            return 'https://upvid.co/' . $encode;   
         }
     }
     
